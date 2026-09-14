@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <title>Leaderboard</title>
+</head>
+
+<body>
+
+  <script src="scripts/insert_navbar.js" type="module"></script>
+
+  <section class="grid center-items">
+    <div class="spacer-1em"></div>
+    <h1>Leaderboard</h1>
+    <br>
+    <table class="library_table sortable" id="player_table">
+      <tr>
+        <th>Name</th>
+        <th class="clickable sort_number" data-col="1">Level</th>
+        <th class="clickable sort_number" data-col="2">XP</th>
+
+      </tr>
+    </table>
+  </section>
+  <button id="backToTop" title="Zurück zum Seitenanfang" class="subtle">Nach oben</button>
+  <script src="scripts/back_to_top.js" type="module" defer></script>
+
+  <script type="module" src="./scripts/leaderboard.js"> </script>
+</body>
+
+</html>

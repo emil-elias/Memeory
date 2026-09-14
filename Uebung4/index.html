@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memeory</title>
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <script src="scripts/insert_navbar.js" type="module"></script>
+
+  <section class="grid center-items">
+    <div class="spacer-1em"></div>
+
+    <!--Levelnummer und Timer-->
+    <p style="color: #0fe5f0; margin-bottom: 2px;" id="levelnr"></p>
+    <h2 id="timer" style="width: 3em; text-align: center; margin-bottom: 1ch;"></h2>
+    <!--Spielfeld-->
+    <div id="game_field"></div>
+    <!--Ergebnis Anzeige-->
+    <div id="result_screen" style="text-align: center;"></div>
+    <div class="spacer-1em"></div>
+    <!--Aufgeben/Neustart Button-->
+    <div style="display: flex; gap: 1em; align-items: center; margin-top: 1ch">
+      <select name="selectNumberOfCards" id="selectNumberOfCards">Anzahl Karten</select>
+      <input type="text" id="setGameDuration">
+      <button id="generate_new_game" style="display: none;">Abbrechen</button>
+    </div>
+    <div class="spacer-5em"></div>
+
+
+  </section>
+
+  <!--Wird bei LevelUp angezeigt-->
+  <div class="modal" id="levelup">
+    <div class="modal_content">
+      <p id="leveluptext">Du bist ein Level aufgestiegen!</p>
+      <br />
+      <button id="closeLevelupModal" style="margin-right: 1em;">Ok, cool</button>
+      <button id="newGame">Weiterspielen</button>
+    </div>
+  </div>
+
+  <!--Bestätigungsdialog bei Klick auf Spiel abbrechen-->
+  <div class="modal" id="cancelGameModal">
+    <div class="modal_content">
+      <p id="cancelGameWarning">Möchtest du das Spiel wirklich abbrechen?</p>
+      <br />
+      <button id="cancelGame" class="outline_button_red" style="margin-right: 1em;">Ja, Spiel abbrechen</button>
+      <button id="cancelCancelGame">Weiterspielen</button>
+    </div>
+  </div>
+
+  <!--Levelauswahl Dialog beim ersten Spiel-->
+  <div class="modal" id="levelSelectModal">
+    <div class="modal_content">
+      <h1>Dein erstes Mal!</h1>
+      <p>Auf welchem Level möchtest du starten? <br>Entscheide weise...</p>
+      <br>
+      <select style="padding: 1em;" name="levelSelect" id="levelSelect">
+      </select>
+      <div class="spacer-2em"></div>
+      <button id="confirmLevel">Auswählen</button>
+    </div>
+  </div>
+
+  <script src="scripts/game.js" type="module"></script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <title>Karte hinzufügen</title>
+  </head>
+  <body>
+
+    <nav class="navbar">
+      <a class="nav_container" href="index.html">
+        <img src="images/memory-logo.png" alt="" height="35px" />
+        <h1>Memory</h1>
+      </a>
+      <div class="nav_container">
+        <a href="index.html">Spielen</a>
+        <a href="overview.html">Übersicht</a>
+        <a href="login.html">Konto</a>
+
+      </div>
+    </nav>
+
+    <section class="grid center-items">
+      <div class="spacer-5em"></div>
+      <h1>Neue Karte hinzufügen</h1>
+      <form
+        action=""
+        class="upload_form"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <label for="newcard-picture">Bild</label>
+        <br/>
+        <input type="file" id="newcard-picture" name="newcard-picture" required/>
+        <br/>
+        <label for="newcard-name">Name</label>
+        <br/>
+        <input type="text" id="newcard-name" name="newcard-name" placeholder=" " required/>
+        <button type="submit">Hochladen</button>
+      </form>
+    </section>
+  </body>
+</html>

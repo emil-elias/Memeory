@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <title>Registrieren</title>
+  </head>
+  <body>
+
+    <nav class="navbar">
+      <a class="nav_container" href="index.html">
+        <img src="images/memory-logo.png" alt="" height="35px" />
+        <h1>Memory</h1>
+      </a>
+      <div class="nav_container">
+        <a href="index.html">Spielen</a>
+        <a href="overview.html">Übersicht</a>
+        <a href="login.html">Konto</a>
+
+      </div>
+    </nav>
+
+    <section class="grid center-items">
+      <div class="spacer-5em"></div>
+      <h1>Registrieren</h1>
+      <form class="registration_login_form" method="post" id="register_form">
+        <label for="first_name">Vorname </label>
+        <br />
+        <input type="text" id="first_name" name="first_name" placeholder=" " required/>
+        <br />
+        <label for="last_name">Nachname </label>
+        <br />
+        <input type="text" id="last_name" name="last_name" placeholder=" " required/>
+        <br />
+        <label for="email_address">E-Mail </label>
+        <br />
+        <input type="email" id="email_address" name="e-mail" placeholder=" " required/>
+        <br />
+        <label for="password">Passwort </label>
+        <br />
+        <input type="password" id="password" name="password" placeholder=" " required/>
+        <div id="password_info">
+          <p> 
+            Passwort muss enthalten: <br/>
+            <span id="longEnough">Mind. 7 Zeichen</span> <br/>
+            <span id="containsNumbers">Mind. 5 Ziffern</span> <br/>
+            <span id="containsUpperCase">Mind. 1 Großbuchstaben</span> <br/>
+            <span id="containsLowerCase">Mind. 1 Kleinbuchstaben</span>
+          </p>
+        </div>
+        <br />
+        <label for="password_repeat">Passwort wiederholen </label>
+        <br />
+        <input type="password" id="password_repeat" name="password_repeat" placeholder=" " required/>
+        <p id="passwords_not_matching">Passwörter stimmen nicht überein</p>
+        <button type="button" id="submit_button">Registrieren</button>
+      </form>
+      <p>Bereits ein Konto?</p>
+      <a href="login.html">Anmelden</a>
+      <div class="spacer-5em"></div>
+    </section>
+    <script src="scripts/passwordcheck.js"></script>
+    <script>
+      document.getElementById("submit_button").addEventListener("click", () => {
+        const formData = new FormData(document.getElementById("register_form"));
+        let request = new XMLHttpRequest();
+        request.onload = () => {
+          if (request.status === 200 && request.readyState === 4) {
+            alert(request.responseText)
+          } else {
+            alert("Etwas ist schief gelaufen");
+          }
+        };
+        request.onerror = () => {
+          alert("Etwas ist schief gelaufen");
+        };
+        request.open("POST", "php/player.php");
+        request.send(formData);
+
+      });
+    </script>
+    <noscript>
+      JavaScript is inactive!
+    </noscript>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <title>Kartenübersicht</title>
+</head>
+
+<body>
+  <script src="scripts/insert_navbar.js" type="module"></script>
+
+  <section class="grid center-items">
+    <div class="spacer-1em"></div>
+    <h1>Kartenübersicht</h1>
+    <a id="uploadCardButton" style="display: none;">
+      <button>+ Karte hinzufügen</button>
+    </a>
+    <div class="spacer-2em"></div>
+    <table class="library_table" id="card_table">
+      <tr>
+        <th>Name</th>
+        <th>Bild</th>
+        <th>
+
+        </th>
+      </tr>
+    </table>
+
+    <div class="spacer-5em"></div>
+  </section>
+
+  <!--Bestätigungsdialog, der eingeblendet wird, wenn Admin auf Karte löschen klickt
+      Nur funktional, wenn der angemeldete Nutzer Admin ist
+    -->
+  <div class="modal" id="deleteCardModal">
+    <div class="modal_content">
+      <p id="deleteCardWarning"></p>
+      <br />
+      <button id="deleteCard" class="outline_button_red" style="margin-right: 1em;">Ja</button>
+      <button id="dontDeleteCard">Nein</button>
+    </div>
+  </div>
+
+  <button id="backToTop" title="Zurück zum Seitenanfang" class="subtle">Nach oben</button>
+  <script src="scripts/back_to_top.js" type="module" defer></script>
+
+  <script src="./scripts/card_overview.js" type="module"></script>
+</body>
+
+</html>

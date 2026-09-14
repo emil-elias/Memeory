@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <title>Karte hinzufügen</title>
+  </head>
+  <body>
+
+    <nav class="navbar">
+      <a class="nav_container" href="index.html">
+        <img src="images/memory-logo.png" alt="" height="35px" />
+        <h1>Memory</h1>
+      </a>
+      <div class="nav_container">
+        <a href="index.html">Spielen</a>
+        <a href="overview.html">Übersicht</a>
+        <a href="login.html">Konto</a>
+
+      </div>
+    </nav>
+
+    <section class="grid center-items">
+      <div class="spacer-5em"></div>
+      <h1>Neue Karte hinzufügen</h1>
+      <form
+        id="card_form"
+        class="upload_form"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <label for="newcard-picture">Bild</label>
+        <br/>
+        <input type="file" id="newcard-picture" name="newcard-picture" required/>
+        <br/>
+        <label for="newcard-name">Name</label>
+        <br/>
+        <input type="text" id="newcard-name" name="newcard-name" placeholder=" " required/>
+        <button type="button" id="submit_button">Hochladen</button>
+      </form>
+      <p id="response_text"></p>
+    </section>
+
+    <script>
+      document.getElementById("submit_button").addEventListener("click", () => {
+        const formData = new FormData(document.getElementById("card_form"));
+        const responseContainer = document.getElementById("response_text");
+
+        let request = new XMLHttpRequest();
+        request.onload = () => {
+          if (request.status === 200 && request.readyState === 4) {
+            responseContainer.innerHTML =
+              request.responseText;
+          } else {
+            responseContainer.innerHTML =
+              "Etwas ist schief gelaufen";
+          }
+        };
+        request.onerror = () => {
+          responseContainer.innerHTML =
+            "Etwas ist schief gelaufen";
+        };
+        request.open("POST", "php/card.php");
+        request.send(formData);
+
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <title>Registrieren</title>
+</head>
+
+<body>
+
+  <script src="scripts/insert_navbar.js" type="module"></script>
+
+  <section class="grid center-items">
+    <div class="spacer-1em"></div>
+    <h1>Registrieren</h1>
+    <form class="registration_login_form" method="post" id="register_form" name="registerForm" onsubmit="return false">
+      <label for="username">Username </label>
+      <br />
+      <input type="text" id="username" name="username" placeholder=" " required />
+      <p id="usernameInfo">Der Username darf nur Buchstaben und Zahlen enthalten.</p>
+      <br />
+      <label for="email_address">E-Mail </label>
+      <br />
+      <input type="email" id="email_address" name="e-mail" placeholder=" " required />
+      <br />
+      <label for="password">Passwort </label>
+      <br />
+      <input type="password" id="password" name="password" placeholder=" " required />
+      <div id="password_info">
+        <p>
+          Passwort muss enthalten: <br />
+          <span id="longEnough">Mind. 7 Zeichen</span> <br />
+          <span id="containsNumbers">Mind. 1 Ziffer</span> <br />
+          <span id="containsUpperCase">Mind. 1 Großbuchstaben</span> <br />
+          <span id="containsLowerCase">Mind. 1 Kleinbuchstaben</span>
+        </p>
+      </div>
+      <br />
+      <label for="password_repeat">Passwort wiederholen </label>
+      <br />
+      <input type="password" id="password_repeat" name="password_repeat" placeholder=" " required />
+      <p id="passwords_not_matching">Passwörter stimmen nicht überein</p>
+      <button type="submit" id="submit_button">Registrieren</button>
+    </form>
+    <p>Bereits ein Konto?</p>
+    <a href="login.html">Anmelden</a>
+    <div class="spacer-5em"></div>
+  </section>
+  <script src="scripts/registercheck.js"></script>
+  <script>
+    document.getElementById("submit_button").addEventListener("click", () => {
+      
+      if (document.forms.registerForm.checkValidity()) {
+        const formData = new FormData(document.getElementById("register_form"));
+        let request = new XMLHttpRequest();
+        request.onload = () => {
+          if (request.status === 200 && request.readyState === 4) {
+            window.location = "account.html";
+          } else {
+            alert(request.responseText);
+          }
+        };
+        request.onerror = () => {
+          alert("Etwas ist schief gelaufen");
+        };
+        request.open("POST", "php/player.php?function=register");
+        request.send(formData);
+      }
+
+
+    });
+  </script>
+  <noscript>
+    JavaScript is inactive!
+  </noscript>
+</body>
+
+</html>

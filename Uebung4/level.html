@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <title>Level</title>
+</head>
+
+<body>
+
+  <script src="scripts/insert_navbar.js" type="module"></script>
+
+  <section class="grid center-items">
+    <div class="spacer-1em"></div>
+    <h1>Level <span id="levelnr"></span></h1>
+    <p>Anzahl Karten: <span id="card_number"></span></p>
+    <div class="spacer-1em"></div>
+    <p>Spielzeit: <span id="level_time"></span></p>
+    <div class="spacer-1em"></div>
+    <p>Benötigte XP: <span id="level_xp"></span></p>
+    <div class="spacer-2em"></div>
+    <a id="editLevelButton" style="display: none;" >
+      <button class="outline_button_blue">Level bearbeiten</button>
+    </a>
+    <div class="spacer-5em"></div>
+    <h2 style="color:#0fe5f0" id="playernr"></h2>
+    <div class="spacer-1em"></div>
+    <table class="library_table sortable" id="player_table">
+      <tr>
+        <th>Name</th>
+        <th class="clickable sort_number" data-col="1">XP</th>
+      </tr>
+    </table>
+  </section>
+
+  <script type="module" src="./scripts/level.js"> </script>
+</body>
+
+</html>

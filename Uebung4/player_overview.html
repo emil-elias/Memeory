@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <title>Spielerübersicht</title>
+</head>
+
+<body>
+
+  <script src="scripts/insert_navbar.js" type="module"></script>
+
+  <section class="grid center-items">
+    <div class="spacer-1em"></div>
+    <h1>Spielerübersicht</h1>
+    <p>Klicke auf einen Spieler in der Tabelle um seine Spiele anzuzeigen</p>
+    <div class="spacer-1em"></div>
+    <table class="library_table sortable" id="player_table">
+      <tr>
+        <th>Name</th>
+        <th>E-Mail</th>
+        <th class="clickable sort_number" data-col="2">Level</th>
+        <th class="clickable sort_number" data-col="3">XP</th>
+        <th class="clickable sort_number" data-col="4">Admin</th>
+
+      </tr>
+    </table>
+  </section>
+  <button id="backToTop" title="Zurück zum Seitenanfang" class="subtle">Nach oben</button>
+  <script src="scripts/back_to_top.js" type="module" defer></script>
+
+  <script type="module" src="./scripts/player_overview.js"> </script>
+</body>
+
+</html>

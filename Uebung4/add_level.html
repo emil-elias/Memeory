@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <title>Level hinzufügen</title>
+</head>
+
+<body>
+
+  <script src="scripts/insert_navbar.js" type="module"></script>
+
+  <section class="grid center-items">
+    <div class="spacer-1em"></div>
+    <h1>Level hinzufügen</h1>
+    <!--onsubmit: return false verhindert, dass nach klick submit die seite neu geladen wird
+      - Das wollen wir nicht, weil wir unter dem Formular die Response anzeigen wollen
+    -->
+    <form class="number_form" method="post" id="level_form" onsubmit="return false">
+      <label for="level_number">Level Nummer </label>
+      <input type="number" id="level_number" name="level_number" placeholder="1" min="1" required />
+      <br />
+      <label for="level_minutes">Spielzeit </label>
+      <input type="number" id="level_minutes" name="level_minutes" placeholder="Mins" min="0" required />
+      <input type="number" id="level_secondes" name="level_seconds" placeholder="Secs" min="0" max="59" required />
+      <br />
+      <label for="number_of_cards">Anzahl Karten </label>
+      <input type="number" id="number_of_cards" name="number_of_cards" placeholder="2" min="2" required />
+      <br />
+      <label for="level_xp">Benötigte XP </label>
+      <input type="number" id="level_xp" name="level_xp" placeholder="0" min="0" required />
+      <br />
+      <button type="submit" id="submit_button">Hinzufügen</button>
+    </form>
+    <div class="spacer-2em"></div>
+    <p id="response_text"></p>
+  </section>
+
+  <script type="module" src="scripts/add_level.js"></script>
+</body>
+
+</html>

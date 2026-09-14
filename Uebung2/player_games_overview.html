@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <title>Spielübersicht</title>
+
+  <!--Chart.js-->
+  <script src="
+https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js
+"></script>
+</head>
+
+<body>
+  <nav class="navbar">
+    <a class="nav_container" href="index.html">
+      <img src="images/memory-logo.png" alt="" height="35px" />
+      <h1>Memory</h1>
+    </a>
+    <div class="nav_container">
+      <a href="index.html">Spielen</a>
+      <a href="overview.html">Übersicht</a>
+      <a href="login.html">Konto</a>
+    </div>
+  </nav>
+  <section class="grid center-items">
+    <div class="spacer-5em"></div>
+    <h1>
+      Spielübersicht für <span id="firstname"></span>
+      <span id="lastname"></span>
+    </h1>
+    <br />
+    <!--Statistik Block-->
+    <div style="display: flex; gap: 3em">
+      <!--canvas element für chart.js
+      chart.js ignoriert anscheinend die canvas größe,
+      deswegen wird es hier durch ein div begrenzt-->
+      <div style="width: 15em">
+        <canvas id="chart"></canvas>
+      </div>
+      <!--Hier werden per JS die Zahlene eingefügt-->
+      <div style="
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.25em;
+          ">
+        <h3 style="color: lightgreen">
+          <span id="games_won"></span> gewonnen
+        </h3>
+        <h3 style="color: crimson"><span id="games_lost"></span> verloren</h3>
+        <h3 style="color: orange">
+          <span id="games_quit"></span> abgebrochen
+        </h3>
+        <h3 style="color: #0fe5f0">
+          <span id="games_expired"></span> abgelaufen
+        </h3>
+      </div>
+    </div>
+    <div class="spacer-5em"></div>
+    <p>
+      Klicke auf eine Spaltenüberschrift um die Tabelle entsprechend zu
+      sortieren
+    </p>
+    <br />
+    <table class="library_table sortable" id="games_table">
+      <tr>
+        <!--Die Spalten überschriften definieren mit einer klasse sort_date oder sort_number für die
+          tablesort.js, nach welchem Typ sie sortiert werden sollen.
+        Das data-col Attribut sagt dem script welche Spalte beim sortieren entsprechend beachtet werden soll-->
+        <th class="clickable sort_date" data-col="0">Spieldatum</th>
+        <th class="clickable sort_number" data-col="1">Level</th>
+        <th>Spieldauer</th>
+        <th>Spielart</th>
+        <th>Spielername(n)</th>
+        <th>Gewinner</th>
+        <th>Verlauf</th>
+      </tr>
+      <tr>
+        <td>03.03.3033</td>
+        <td>3</td>
+        <td>03:33</td>
+        <td>Einzelspieler</td>
+        <!--In Elemente mit der Klasse insert_playername, soll mittels js der entsprechende Spielername eingesetzt werden
+        Das ist natürlich hier nur eine Übergangslösung, weil es sich um Musterdaten handelt die für alle gleich sind
+        Später würde natürlich die komplette Tabelle aus der Datenbank geladen werden-->
+        <td class="insert_playername"></td>
+        <td class="insert_playername"></td>
+        <td>beendet</td>
+      </tr>
+      <tr>
+        <td>02.02.2022</td>
+        <td>2</td>
+        <td>02:22</td>
+        <td>Mehrspieler</td>
+        <td><span class="insert_playername"></span>, Ruven Bellmann</td>
+        <td>Ruven Bellmann</td>
+        <td>beendet</td>
+      </tr>
+      <tr>
+        <td>02.06.2021</td>
+        <td>8</td>
+        <td>00:30</td>
+        <td>Einzelspieler</td>
+        <td class="insert_playername"></td>
+        <td></td>
+        <td>abgebrochen</td>
+      </tr>
+      <tr>
+        <td>31.02.2021</td>
+        <td>4</td>
+        <td>04:00</td>
+        <td>Einzelspieler</td>
+        <td class="insert_playername"></td>
+        <td></td>
+        <td>abgelaufen</td>
+      </tr>
+      <tr>
+        <td>09.09.2019</td>
+        <td>3</td>
+        <td>03:14</td>
+        <td>Mehrspieler</td>
+        <td><span class="insert_playername"></span>, Mario Luigi</td>
+        <td class="insert_playername"></td>
+        <td>beendet</td>
+      </tr>
+      <tr>
+        <td>13.07.2014</td>
+        <td>7</td>
+        <td>01:07</td>
+        <td>Mehrspieler</td>
+        <td><span class="insert_playername"></span>, Christoph Kramer</td>
+        <td></td>
+        <td>abgebrochen</td>
+      </tr>
+      <tr>
+        <td>12.12.2012</td>
+        <td>1</td>
+        <td>01:46</td>
+        <td>Mehrspieler</td>
+        <td><span class="insert_playername"></span>, Emil Wilde</td>
+        <td class="insert_playername"></td>
+        <td>beendet</td>
+      </tr>
+      <tr>
+        <td>20.04.1969</td>
+        <td>5</td>
+        <td>05:00</td>
+        <td>Einzelspieler</td>
+        <td class="insert_playername"></td>
+        <td></td>
+        <td>abgebrochen</td>
+      </tr>
+    </table>
+  </section>
+  <div class="spacer-5em"></div>
+
+  <script src="scripts/player_games_overview.js"></script>
+  <script src="scripts/tablesort.js"></script>
+</body>
+
+</html>

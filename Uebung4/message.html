@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nachricht</title>
+
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+    <script src="scripts/insert_navbar.js" type="module"></script>
+
+    <section class="grid center-items">
+        <div class="spacer-2em"></div>
+        <p id="insert"></p>
+    </section>
+
+    <script>
+        //Diese Seite Zeigt einfach nur eine Nachricht an, die per URL übergeben wird
+        const urlParams = new URLSearchParams(window.location.search);
+        const msg = urlParams.get("msg");
+        const insert = document.getElementById("insert");
+        insert.innerText = msg;
+
+    </script>
+</body>

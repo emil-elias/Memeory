@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <title>Spielübersicht</title>
+
+  <!--Chart.js-->
+  <script src="
+https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js
+"></script>
+
+</head>
+
+<body>
+  <script src="scripts/insert_navbar.js" type="module"></script>
+  <section class="grid center-items">
+    <div class="spacer-1em"></div>
+    <h1>
+      Übersicht für <span id="playername"></span>
+    </h1>
+    <p>ID: <span id="playerid"></span></p>
+    <div class="spacer-1em"></div>
+    <p>E-Mail: <span id="email"></span></p>
+    <div class="spacer-1em"></div>
+    <p>Level: <span id="level"></span></p>
+    <div class="spacer-1em"></div>
+    <p>XP: <span id="xp"></span></p>
+    <div class="spacer-2em"></div>
+    <!--Statistik Block-->
+    <div style="display: flex; gap: 3em" id="statsContainer">
+      <!--canvas element für chart.js
+      chart.js ignoriert anscheinend die canvas größe,
+      deswegen wird es hier durch ein div begrenzt-->
+      <div style="width: 15em">
+        <canvas id="chart"></canvas>
+      </div>
+      <!--Hier werden per JS die Zahlene eingefügt-->
+      <div style="
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.25em;
+          ">
+        <h3 style="color: lightgreen">
+          <span id="games_won"></span> gewonnen
+        </h3>
+        <h3 style="color: crimson"><span id="games_lost"></span> verloren</h3>
+        <h3 style="color: orange">
+          <span id="games_quit"></span> abgebrochen
+        </h3>
+        <h3 style="color: #0fe5f0">
+          <span id="games_expired"></span> abgelaufen
+        </h3>
+      </div>
+    </div>
+    <div class="spacer-5em" id="spacer"></div>
+    <p id="disclaimer">
+      Klicke auf eine Spaltenüberschrift um die Tabelle entsprechend zu
+      sortieren
+    </p>
+    <div class="spacer-1em"></div>
+    <table class="library_table sortable" id="games_table">
+      <tr>
+        <!--Die Spalten überschriften definieren mit einer klasse sort_date oder sort_number für die
+          tablesort.js, nach welchem Typ sie sortiert werden sollen.
+        Das data-col Attribut sagt dem script welche Spalte beim sortieren entsprechend beachtet werden soll-->
+        <th class="clickable sort_number" data-col="0">Spieldatum</th>
+        <th class="clickable sort_number" data-col="1">Level</th>
+        <th class="clickable sort_number" data-col="2">Spieldauer</th>
+        <th class="clickable sort_number" data-col="3">Spielart</th>
+        <th>Initiator</th>
+        <th>Mitspieler</th>
+        <th>Gewinner</th>
+        <th>Verlauf</th>
+      </tr>
+    </table>
+    <div class="spacer-5em"></div>
+  </section>
+  <button id="backToTop" title="Zurück zum Seitenanfang" class="subtle">Nach oben</button>
+  
+  <script src="scripts/player_games_overview.js" type="module" defer></script>
+  <script src="scripts/back_to_top.js" type="module" defer></script>
+</body>
+
+</html>

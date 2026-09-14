@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Konto</title>
+
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+    <script src="scripts/insert_navbar.js" type="module"></script>
+
+    <section class="grid center-items">
+        <div class="spacer-1em"></div>
+        <div style="display: flex; align-items: center; gap: 1em">
+            <h1>Angemeldet als <span id="username"><!-- Hier kommt der username rein --></span></h1>
+            <button id="logout" class="outline_button_red">Abmelden</button>
+        </div>
+
+        <p>ID: <span id="playerid"><!-- Hier kommt die ID des Spielers rein --></span></p>
+        <div class="spacer-1em"></div>
+        <p>E-Mail: <span id="email"><!-- Hier kommt die Email rein --></span></p>
+        <div class="spacer-1em"></div>
+        <p>Level: <span id="level"><!-- Hier kommt das Level des Spielers rein --></span></p>
+        <div class="spacer-1em"></div>
+        <p>XP: <span id="xp"><!-- Hier kommen die XP des Spielers rein --></span></p>
+        <div class="spacer-2em"></div>
+        <a href="edit_account.html">
+            Kontodaten bearbeiten
+        </a>
+        <div class="spacer-1em"></div>
+        <a href="change_password.html">
+            Passwort ändern
+        </a>
+        <div class="spacer-1em"></div>
+        <a href="#" id="deleteAccount" style="color: crimson">Konto löschen</a>
+
+
+
+
+
+    </section>
+
+    <!--Bestätigungsdialog, der eingeblendet wird, wenn der Nutzer auf Konto löschen klickt-->
+    <div class="modal" id="deleteConfirm">
+        <div class="modal_content">
+            <p id="modal-text">Möchtest du dein Konto wirklich löschen<br> und alle deine Daten verlieren?</p>
+            <br />
+            <button id="modal-yes" class="outline_button_red" style="margin-right: 1em;">Ja</button>
+            <button id="modal-no">Nein</button>
+        </div>
+    </div>
+
+    <script type="module" src="scripts/account_view.js"></script>
+
+</body>
+
+</html>

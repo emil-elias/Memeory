@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <title>Spielerübersicht</title>
+  </head>
+
+  <body>
+
+    <nav class="navbar">
+      <a class="nav_container" href="index.html">
+        <img src="images/memory-logo.png" alt="" height="35px" />
+        <h1>Memory</h1>
+      </a>
+      <div class="nav_container">
+        <a href="index.html">Spielen</a>
+        <a href="overview.html">Übersicht</a>
+        <a href="login.html">Konto</a>
+
+      </div>
+    </nav>
+
+    <section class="grid center-items">
+      <div class="spacer-5em"></div>
+      <h1>Spielerübersicht</h1>
+      <p>Klicke auf einen Spieler in der Tabelle um seine Spiele anzuzeigen</p>
+      <br>
+      <table class="library_table">
+        <tr>
+          <th>Vorname</th>
+          <th>Name</th>
+          <th>E-Mail</th>
+          <th>Level</th>
+        </tr>
+
+        <tr class="clickable"
+          onclick="redirect('player_games_overview.html?firstname=Martin&lastname=Heker')"
+        >
+          <td>Martin</td>
+          <td>Heker</td>
+          <td>m.heker@yahoo.com</td>
+          <td>1</td>
+        </tr>
+
+        <tr class="clickable" onclick="redirect('player_games_overview.html?firstname=Miriam&lastname=Faust')">
+          <td>Miriam</td>
+          <td>Faust</td>
+          <td>mfaust15@hexamail.com</td>
+          <td>5</td>
+        </tr>
+        <tr class="clickable" onclick="redirect('player_games_overview.html?firstname=Rick&lastname=Astley')">
+          <td>Rick</td>
+          <td>Astley</td>
+          <td>rickastley@uni-bremen.de</td>
+          <td>33</td>
+        </tr>
+      </table>
+    </section>
+
+    <script>
+      function redirect(path) {
+        window.location = path;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+Die Anwendung erfordert nichts weiter als das Laufen auf einem Apache Server und einer laufenden Datenbank mit dem Namen "memory".
+
+Die Datenbank und ihre Tabellen mitsamt Bildern, Leveln und Admin Konto, lassen sich mit der SQL-Query "create_full_memory_db.sql" erstellen.
+
+Unter dem Punkt "Anmelden", kann sich auf der Webseite mit den vorgegebenen Admin-Nutzerdaten angemeldet werden.
+Neue Konten lassen sich ebenfalls unter Anmelden und dann mit klick auf "Registrieren" unter dem Anmeldeformular erstellen.
+
+Das Memory lässt sich auch ohne Anmeldung spielen, allerdings ohne Funktionen wie Levelaufstieg, Bestenlisten oder Statistiken.
+
+Ist man eingeloggt, so lassen sich unter "Konto" die Kontodaten einsehen und ändern. Änderbar sind Nutzername und E-Mail (vorrausgesetzt sie sind nicht schon vergeben, sowie das Passwort). Außerdem kann man sich hier abmelden oder sein Konto löschen.
+
+Gespielt werden kann auf der Startseite. Sobald man diese betritt, wird bereits ein Spielfeld generiert. Vor dem Spiel, wird ein neuer Nutzer gefragt, in welchem Level er spielen möchte. Dies ist eine einmalige Entscheidung, sie ist also mit Bedacht zu treffen. Zum Starten des Spieles muss einfach nur eine beliebige Karte aufgedeckt werden. Das Spiel ist vorbei, sobald die Zeit abgelaufen ist, oder alle Karten gefunden worden sind. Für eingeloggte Nutzer wird nach jedem erfolgreichem Spiel ein XP-Wert berechnet. Jedes Level hat einen Mindest-XP-Wert, der erreicht werden muss, um in das jeweilige Level aufzusteigen. Die XP, die man nach einem Spiel gutgeschrieben bekommt, hängen davon ab, wie viel Zeit man für das Spiel benötigt hat.
+Wahlweise lässt sich auch selber eine benutzerdefinierte Anzahl Karten und Spielzeit einstellen, diese hat allerdings keinerlei Einfluss auf das Level.
+
+Alle Levels lassen sich mit Klick auf den Menüpunkt "Übersicht" und dann den "Unterpunkt" Levels ansehen.
+Administratoren haben hier außerdem die Möglichkeit, neue Levels zu erstellen und bereits vorhandene Levels zu bearbeiten oder zu löschen.
+Gelöscht werden kann jeweils nur das letzte Level, da sonst zu viel durcheinanderkommen würde.
+Mit Klick auf ein Level in der Tabelle, lassen sich außerdem weitere Details zu einem Level anzeigen, wie z.B. alle Spieler, die sich in einem Level befinden.
+
+In der Übersicht findet sich desweiteren eine Übersicht aller Karten. Auch hier haben Administratoren die Möglichkeit, neue Karten hinzuzufügen oder vorhandene Karten zu löschen.
+
+Neben der Karten und der Levelübersicht, gibt es für alle eingeloggten Nutzer zugänglich ein Leaderboard, mit allen Spielern und ihren XP und Levels.
+
+Administratoren finden in der Übersicht außerdem eine Übersicht aller Spieler mit allen Details, außerdem können sie zu jedem Spieler in den Spielertabellen die Spielhistorie ansehen.
+
+Die eigene Spielhistorie und Statistik findet sich ebenfalls in der Übersicht unter dem Punkt "Deine Spiele".
+Administratoren haben zusätzlich eine Übersicht über alle jemals gespielten Spiele.
+
+Tabellen können teilweise sortiert werden. Die Überschriften von Spalten, die sortiert werden können, können dafür angeklickt werden und werden beim darüber hovern blau hinterlegt. Ein erneuter Klick auf die selbe Spaltenüberschrift sortiert die entsprechende Spalte jeweils umgekehrt.
+
+Bedauerlicherweise war es uns Aufgrund anderer Verpflichtungen und fehlender Zeit nicht mehr möglich, eine Multiplayer-Funktionalität zu implementieren.
+
+Ruven und Emil wünchen dennoch viel Spaß beim Memory spielen

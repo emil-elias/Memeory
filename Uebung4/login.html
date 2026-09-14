@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <title>Log in</title>
+  </head>
+  <body>
+
+    <script src="scripts/insert_navbar.js" type="module"></script>
+
+    <section class="grid center-items">
+      <div class="spacer-1em"></div>
+      <h1>Log in</h1>
+      <form class="registration_login_form" method="post" id="login_form" onsubmit="return false;">
+        <label for="email_address">E-Mail oder Username </label>
+        <br />
+        <input type="text" id="email_address" name="email_address" placeholder=" " required/>
+        <br />
+        <label for="password">Passwort </label>
+        <br />
+        <input type="password" id="password" name="password" placeholder=" " required/>
+        <button type="submit" id="submit_button">Einloggen</button>
+      </form>
+      <p>Noch kein Konto?</p>
+      <a href="register.html">Registrieren</a>
+    </section>
+
+    <script>
+      document.getElementById("submit_button").addEventListener("click", () => {
+        const formData = new FormData(document.getElementById("login_form"));
+        let request = new XMLHttpRequest();
+        request.onload = () => {
+          if (request.status === 200 && request.readyState === 4) {
+            window.location = "account.html";
+          } else if (request.status === 404) {
+            alert("Konto nicht gefunden");
+          } else if (request.status === 403) {
+            alert("Falsches Passwort");
+          } else {
+            alert("Etwas ist schief gelaufen");
+          }
+        };
+        request.onerror = () => {
+          alert("Etwas ist schief gelaufen");
+        };
+        request.open("POST", "php/player.php?function=login");
+        request.send(formData);
+
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <title>Karte hinzufügen</title>
+</head>
+
+<body>
+
+  <script src="scripts/insert_navbar.js" type="module"></script>
+
+  <section class="grid center-items">
+    <div class="spacer-1em"></div>
+    <h1>Neue Karte hinzufügen</h1>
+    <form id="card_form" class="upload_form" method="post" enctype="multipart/form-data">
+      <label for="newcard-picture">Bild</label>
+      <br />
+      <input type="file" id="newcard-picture" name="newcard-picture" required />
+      <br />
+      <label for="newcard-name">Name</label>
+      <br />
+      <input type="text" id="newcard-name" name="newcard-name" placeholder=" " required />
+      <button type="button" id="submit_button">Hochladen</button>
+    </form>
+    <p id="response_text" style="text-align: center;">Dein Bild sollte nicht viel größer als 15 KB sein</p>
+  </section>
+
+  <script type="module" src="scripts/upload_card.js"></script>
+</body>
+
+</html>

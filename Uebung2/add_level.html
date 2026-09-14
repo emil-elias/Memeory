@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <title>Level hinzfügen</title>
+  </head>
+  <body>
+
+    <nav class="navbar">
+      <a class="nav_container" href="index.html">
+        <img src="images/memory-logo.png" alt="" height="35px" />
+        <h1>Memory</h1>
+      </a>
+      <div class="nav_container">
+        <a href="index.html">Spielen</a>
+        <a href="overview.html">Übersicht</a>
+        <a href="login.html">Konto</a>
+
+      </div>
+    </nav>
+    
+    <section class="grid center-items">
+      <div class="spacer-5em"></div>
+      <h1>Level hinzufügen</h1>
+      <form action="" class="number_form" method="post">
+        <label for="level_number">Level Nummer </label>
+        <input
+          type="number"
+          id="level_number"
+          name="level_number"
+          placeholder="1"
+          min="1"
+        />
+        <br />
+        <label for="level_minutes">Spielzeit </label>
+        <input
+          type="number"
+          id="level_minutes"
+          name="level_minutes"
+          placeholder="Mins"
+          min="0"
+          required
+        />
+        <input
+          type="number"
+          id="level_secondes"
+          name="level_seconds"
+          placeholder="Secs"
+          min="0"
+          max="59"
+          required
+        />
+        <br />
+        <label for="number_of_cards">Anzahl Karten </label>
+        <input
+          type="number"
+          id="number_of_cards"
+          name="number_of_cards"
+          placeholder="2"
+          min="2"
+        />
+        <br />
+        <button type="submit">Hinzufügen</button>
+      </form>
+    </section>
+  </body>
+</html>
