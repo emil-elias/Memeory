@@ -1,4 +1,4 @@
 # Memeory
 
-A browser memory with admin panel, developed by Ruven Bellmann & Emil Wilde.
+A browser memory with database and admin panel, developed by Ruven Bellmann & Emil Wilde.
 
