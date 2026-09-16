@@ -7,3 +7,7 @@ The final version is in the directory "Uebung4".
 
 You'll need an additional SQL database, which you'll have to connect in setupDB.php.
 
+### Pending features
+
+- multiplayer functionality
+
